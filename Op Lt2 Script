@@ -17,15 +17,15 @@ local function createMessage()
     local textLabel = Instance.new("TextLabel", billboardGui)
     textLabel.Size = UDim2.new(1, 0, 1, 0) -- Fill the BillboardGui
     textLabel.BackgroundTransparency = 1 -- Make background transparent
-    textLabel.Text = "NIGGA STOP SCRIPTING YOU SUCK LOL" -- The message to display
-    textLabel.TextColor3 = Color3.new(1, 0, 0) -- Red color (RGB)
+    textLabel.Text = "STOP SCRIPTING YOU SUCK MONKEY" -- A positive message
+    textLabel.TextColor3 = Color3.new(0, 1, 0) -- Green color (RGB)
     textLabel.TextScaled = true -- Scale text to fit
 
     -- Wait for 15 seconds
-    wait(8)
+    wait(15)
 
     -- Kick the player with a custom message
-    player:Kick("By Xbl BDG Reason [Scripting]")
+    player:Kick(“by Xbl BDG reason [Scripting]")
 end
 
 -- Connect the function to PlayerAdded event
