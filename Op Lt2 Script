@@ -25,13 +25,8 @@ local function createMessage()
     wait(15)
 
     -- Kick the player with a custom message
-    player:Kick(“by Xbl BDG reason [Scripting]")
+    player:Kick("by Xbl BDG reason [Scripting]") -- Corrected quotes
 end
-
--- Connect the function to PlayerAdded event
-Players.PlayerAdded:Connect(function(player)
-    player.CharacterAdded:Connect(createMessage)
-end)
 
 -- If the player is already in the game, create the message immediately
 if player.Character then
