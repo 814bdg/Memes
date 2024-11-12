@@ -1,0 +1,41 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer -- Get the local player
+
+-- Function to create the message above the player's head
+local function createMessage()
+    -- Wait for the character to load
+    local character = player.Character or player.CharacterAdded:Wait()
+    local head = character:WaitForChild("Head") -- Get the head of the character
+
+    -- Create a BillboardGui
+    local billboardGui = Instance.new("BillboardGui", head)
+    billboardGui.Size = UDim2.new(0, 200, 0, 50) -- Size of the GUI
+    billboardGui.Adornee = head -- Attach the GUI to the head
+    billboardGui.AlwaysOnTop = true -- Always display it above the head
+
+    -- Create a TextLabel
+    local textLabel = Instance.new("TextLabel", billboardGui)
+    textLabel.Size = UDim2.new(1, 0, 1, 0) -- Fill the BillboardGui
+    textLabel.BackgroundTransparency = 1 -- Make background transparent
+    textLabel.Text = "NIGGA STOP SCRIPTING YOU SUCK LOL" -- The message to display
+    textLabel.TextColor3 = Color3.new(1, 0, 0) -- Red color (RGB)
+    textLabel.TextScaled = true -- Scale text to fit
+
+    -- Wait for 15 seconds
+    wait(8)
+
+    -- Kick the player with a custom message
+    player:Kick("By Xbl BDG Reason [Scripting]")
+end
+
+-- Connect the function to PlayerAdded event
+Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(createMessage)
+end)
+
+-- If the player is already in the game, create the message immediately
+if player.Character then
+    createMessage()
+else
+    player.CharacterAdded:Connect(createMessage)
+end
